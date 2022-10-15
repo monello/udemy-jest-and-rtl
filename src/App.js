@@ -19,7 +19,10 @@ function App() {
       <button
         onClick={handleClick}
         disabled={isDisabled}
-        style={{ color: 'white', backgroundColor: buttonColor }}>Change to {altButtonColor}</button>
+        style={{
+          color: 'white',
+          backgroundColor: isDisabled ? 'gray' : buttonColor
+        }}>Change to {altButtonColor}</button>
       <input
         type='checkbox'
         id="disable-button"
