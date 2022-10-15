@@ -6,7 +6,7 @@ describe('App Component', () => {
     render(<App />);
 
     // find an element with the role of button and the test (a11y-label for buttons) of 'Change to MidnightBlue'
-    const colorButton = screen.getByRole('button', { name: 'Change to Midnight Blue' });
+    const colorButton = screen.getByRole('button', { name: /Change to Midnight Blue/ });
     // Possible custom matchers are listed here: https://github.com/testing-library/jest-dom
     // We wan to test the initial background color for the button and expect it to be MediumVioletRed
     expect(colorButton).toHaveStyle({ backgroundColor: 'MediumVioletRed' });
@@ -16,7 +16,7 @@ describe('App Component', () => {
     render(<App />);
     // Seeing as the app has only 1 button atm we could technically leave out the 'name' option, but it's good practice to be more specific
     // const colorButton = screen.getByRole('button');
-    const colorButton = screen.getByRole('button', { name: 'Change to Midnight Blue' });
+    const colorButton = screen.getByRole('button', { name: /Change to Midnight Blue/ });
     fireEvent.click(colorButton);
     expect(colorButton).toHaveStyle({ backgroundColor: 'MidnightBlue' });
     expect(colorButton).toHaveTextContent('Change to Medium Violet Red');
@@ -38,7 +38,7 @@ describe('App Component', () => {
   test('button status changes as checkbox is toggled', () => {
     render(<App />);
 
-    const colorButton = screen.getByRole('button', { name: 'Change to Midnight Blue' });
+    const colorButton = screen.getByRole('button', { name: /Change to Midnight Blue/ });
     const stateCheckbox = screen.getByRole('checkbox', { name: 'Disable Button' });
 
     fireEvent.click(stateCheckbox);
@@ -62,7 +62,7 @@ describe('App Component', () => {
   test('button turns gray when disabled and reverts back when enabled', () => {
     render(<App />);
 
-    const colorButton = screen.getByRole('button', { name: 'Change to Midnight Blue' });
+    const colorButton = screen.getByRole('button', { name: /Change to Midnight Blue/ });
     const stateCheckbox = screen.getByRole('checkbox', { name: 'Disable Button' });
 
     // confirm that the button starts MediumVioletRed
