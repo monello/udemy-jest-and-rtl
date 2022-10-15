@@ -7,10 +7,10 @@ export function replaceCamelCaseWithSpaces(colorName) {
 
 
 function App() {
-  const [buttonColor, setButtonColor] = useState('red');
+  const [buttonColor, setButtonColor] = useState('MediumVioletRed');
   const [isDisabled, setIsDisabled] = useState(false);
 
-  const altButtonColor = buttonColor === 'red' ? 'blue' : 'red';
+  const altButtonColor = buttonColor === 'MediumVioletRed' ? 'MidnightBlue' : 'MediumVioletRed';
   const handleClick = () => {
     setButtonColor(altButtonColor);
   };
@@ -27,7 +27,7 @@ function App() {
         style={{
           color: 'white',
           backgroundColor: isDisabled ? 'gray' : buttonColor
-        }}>Change to {altButtonColor}</button>
+        }}>Change to {replaceCamelCaseWithSpaces(altButtonColor)}</button>
       <input
         type='checkbox'
         id="disable-button"

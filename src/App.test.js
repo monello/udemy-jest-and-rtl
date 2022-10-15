@@ -5,27 +5,27 @@ describe('App Component', () => {
   test('button has correct initial color', () => {
     render(<App />);
 
-    // find an element with the role of button and the test (a11y-label for buttons) of 'Change to blue'
-    const colorButton = screen.getByRole('button', { name: 'Change to blue' });
+    // find an element with the role of button and the test (a11y-label for buttons) of 'Change to MidnightBlue'
+    const colorButton = screen.getByRole('button', { name: 'Change to Midnight Blue' });
     // Possible custom matchers are listed here: https://github.com/testing-library/jest-dom
-    // We wan to test the initial background color for the button and expect it to be red
-    expect(colorButton).toHaveStyle({ backgroundColor: 'red' });
+    // We wan to test the initial background color for the button and expect it to be MediumVioletRed
+    expect(colorButton).toHaveStyle({ backgroundColor: 'MediumVioletRed' });
   });
 
-  test('button turns blue when clicked', () => {
+  test('button turns MidnightBlue when clicked', () => {
     render(<App />);
     // Seeing as the app has only 1 button atm we could technically leave out the 'name' option, but it's good practice to be more specific
     // const colorButton = screen.getByRole('button');
-    const colorButton = screen.getByRole('button', { name: 'Change to blue' });
+    const colorButton = screen.getByRole('button', { name: 'Change to Midnight Blue' });
     fireEvent.click(colorButton);
-    expect(colorButton).toHaveStyle({ backgroundColor: 'blue' });
-    expect(colorButton).toHaveTextContent('Change to red');
+    expect(colorButton).toHaveStyle({ backgroundColor: 'MidnightBlue' });
+    expect(colorButton).toHaveTextContent('Change to Medium Violet Red');
   });
 
   test('initially button is enable and checkbox unchecked', () => {
     render(<App />);
 
-    const colorButton = screen.getByRole('button', { name: 'Change to blue' });
+    const colorButton = screen.getByRole('button', { name: 'Change to Midnight Blue' });
     const stateCheckbox = screen.getByRole('checkbox', { name: /disable button/i });
 
     // check that the button enabled
@@ -38,7 +38,7 @@ describe('App Component', () => {
   test('button status changes as checkbox is toggled', () => {
     render(<App />);
 
-    const colorButton = screen.getByRole('button', { name: 'Change to blue' });
+    const colorButton = screen.getByRole('button', { name: 'Change to Midnight Blue' });
     const stateCheckbox = screen.getByRole('checkbox', { name: 'Disable Button' });
 
     fireEvent.click(stateCheckbox);
@@ -62,11 +62,11 @@ describe('App Component', () => {
   test('button turns gray when disabled and reverts back when enabled', () => {
     render(<App />);
 
-    const colorButton = screen.getByRole('button', { name: 'Change to blue' });
+    const colorButton = screen.getByRole('button', { name: 'Change to Midnight Blue' });
     const stateCheckbox = screen.getByRole('checkbox', { name: 'Disable Button' });
 
-    // confirm that the button starts red
-    expect(colorButton).toHaveStyle({ backgroundColor: 'red' });
+    // confirm that the button starts MediumVioletRed
+    expect(colorButton).toHaveStyle({ backgroundColor: 'MediumVioletRed' });
 
     fireEvent.click(stateCheckbox);
 
@@ -75,14 +75,14 @@ describe('App Component', () => {
 
     fireEvent.click(stateCheckbox);
 
-    expect(colorButton).toHaveStyle({ backgroundColor: 'red' });
+    expect(colorButton).toHaveStyle({ backgroundColor: 'MediumVioletRed' });
 
     // *** SWITCH COLOR ***
 
     fireEvent.click(colorButton);
 
-    // confirm that the button starts red
-    expect(colorButton).toHaveStyle({ backgroundColor: 'blue' });
+    // confirm that the button starts MediumVioletRed
+    expect(colorButton).toHaveStyle({ backgroundColor: 'MidnightBlue' });
 
     fireEvent.click(stateCheckbox);
 
@@ -91,7 +91,7 @@ describe('App Component', () => {
 
     fireEvent.click(stateCheckbox);
 
-    expect(colorButton).toHaveStyle({ backgroundColor: 'blue' });
+    expect(colorButton).toHaveStyle({ backgroundColor: 'MidnightBlue' });
   });
 
 });
