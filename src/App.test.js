@@ -1,4 +1,4 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import App from './App';
 
 test('button has correct initial color', () => {
@@ -11,6 +11,12 @@ test('button has correct initial color', () => {
   expect(colorButton).toHaveStyle({ backgroundColor: 'red' });
 });
 
-test.skip('button turns blue when clicked', () => {
-
+test('button turns blue when clicked', () => {
+  render(<App />);
+  // Seeing as the app has only 1 button atm we could technically leave out the 'name' option, but it's good practice to be more specific
+  // const colorButton = screen.getByRole('button');
+  const colorButton = screen.getByRole('button', { name: 'Change to blue' });
+  fireEvent.click(colorButton);
+  expect(colorButton).toHaveStyle({ backgroundColor: 'blue' });
+  expect(colorButton).toHaveTextContent('Change to red');
 });
