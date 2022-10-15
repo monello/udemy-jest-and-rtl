@@ -59,6 +59,41 @@ describe('App Component', () => {
 
   });
 
+  test('button turns gray when disabled and reverts back when enabled', () => {
+    render(<App />);
+
+    const colorButton = screen.getByRole('button', { name: 'Change to blue' });
+    const stateCheckbox = screen.getByRole('checkbox', { name: 'Disable Button' });
+
+    // confirm that the button starts red
+    expect(colorButton).toHaveStyle({ backgroundColor: 'red' });
+
+    fireEvent.click(stateCheckbox);
+
+    // now the button should be gray (we already tested the enabled/disabled status in another test)
+    expect(colorButton).toHaveStyle({ backgroundColor: 'gray' });
+
+    fireEvent.click(stateCheckbox);
+
+    expect(colorButton).toHaveStyle({ backgroundColor: 'red' });
+
+    // *** SWITCH COLOR ***
+
+    fireEvent.click(colorButton);
+
+    // confirm that the button starts red
+    expect(colorButton).toHaveStyle({ backgroundColor: 'blue' });
+
+    fireEvent.click(stateCheckbox);
+
+    // now the button should be gray (we already tested the enabled/disabled status in another test)
+    expect(colorButton).toHaveStyle({ backgroundColor: 'gray' });
+
+    fireEvent.click(stateCheckbox);
+
+    expect(colorButton).toHaveStyle({ backgroundColor: 'blue' });
+  });
+
 })
 
 
