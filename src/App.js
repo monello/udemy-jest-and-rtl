@@ -11,6 +11,7 @@ function App() {
   return (
     <div>
       <button onClick={handleClick} style={{ color: 'white', backgroundColor: buttonColor }}>Change to {altButtonColor}</button>
+      <input type='checkbox' />
     </div>
   );
 }
