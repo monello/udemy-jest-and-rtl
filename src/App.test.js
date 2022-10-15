@@ -1,5 +1,5 @@
 import { render, screen, fireEvent } from '@testing-library/react';
-import App from './App';
+import App, { replaceCamelCaseWithSpaces } from './App';
 
 describe('App Component', () => {
   test('button has correct initial color', () => {
@@ -94,8 +94,20 @@ describe('App Component', () => {
     expect(colorButton).toHaveStyle({ backgroundColor: 'blue' });
   });
 
+});
+
+describe('Unit test replaceCamelCaseWithSpace()', () => {
+  it('string with no inner capital letter', () => {
+    expect(replaceCamelCaseWithSpaces('Red')).toBe('Red');
+  });
+
+  it('string with 1 inner capital letter', () => {
+    expect(replaceCamelCaseWithSpaces('MidnightBlue')).toBe('Midnight Blue');
+  });
+
+  it('string with multiple inner capital letters', () => {
+    expect(replaceCamelCaseWithSpaces('MediumVioletRed')).toBe('Medium Violet Red');
+  });
 })
-
-
 
 
