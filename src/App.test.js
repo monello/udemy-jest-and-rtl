@@ -34,6 +34,31 @@ describe('App Component', () => {
     // check that the checkbox is unchecked
     expect(stateCheckbox).not.toBeChecked();
   });
+
+  test('button status changes as checkbox is toggled', () => {
+    render(<App />);
+
+    const colorButton = screen.getByRole('button', { name: 'Change to blue' });
+    const stateCheckbox = screen.getByRole('checkbox');
+
+    fireEvent.click(stateCheckbox);
+
+    // check that the button is disabled
+    expect(colorButton).toBeDisabled();
+
+    // check that the checkbox is checked
+    expect(stateCheckbox).toBeChecked();
+
+    fireEvent.click(stateCheckbox);
+
+    // check that the button is enabled
+    expect(colorButton).toBeEnabled();
+
+    // check that the checkbox is unchecked
+    expect(stateCheckbox).not.toBeChecked();
+
+  });
+
 })
 
 
