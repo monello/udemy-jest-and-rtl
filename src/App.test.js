@@ -1,8 +1,13 @@
 import { render, screen } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+test.skip('button has correct initial color', () => {
+
+});
+
+test.skip('button has correct initial text', () => {
+
+});
+test.skip('button turns blue when clicked', () => {
+
 });
