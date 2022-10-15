@@ -26,7 +26,7 @@ describe('App Component', () => {
     render(<App />);
 
     const colorButton = screen.getByRole('button', { name: 'Change to blue' });
-    const stateCheckbox = screen.getByRole('checkbox');
+    const stateCheckbox = screen.getByRole('checkbox', { name: /disable button/i });
 
     // check that the button enabled
     expect(colorButton).toBeEnabled();
@@ -39,7 +39,7 @@ describe('App Component', () => {
     render(<App />);
 
     const colorButton = screen.getByRole('button', { name: 'Change to blue' });
-    const stateCheckbox = screen.getByRole('checkbox');
+    const stateCheckbox = screen.getByRole('checkbox', { name: 'Disable Button' });
 
     fireEvent.click(stateCheckbox);
 

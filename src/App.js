@@ -22,9 +22,11 @@ function App() {
         style={{ color: 'white', backgroundColor: buttonColor }}>Change to {altButtonColor}</button>
       <input
         type='checkbox'
+        id="disable-button"
         defaultChecked={isDisabled}
         onClick={handleCheckboxClick}
       />
+      <label htmlFor='disable-button'>Disable Button</label>
     </div>
   );
 }
