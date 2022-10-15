@@ -22,6 +22,18 @@ describe('App Component', () => {
     expect(colorButton).toHaveTextContent('Change to red');
   });
 
+  test('initially button is enable and checkbox unchecked', () => {
+    render(<App />);
+
+    const colorButton = screen.getByRole('button', { name: 'Change to blue' });
+    const stateCheckbox = screen.getByRole('checkbox');
+
+    // check that the button enabled
+    expect(colorButton).toBeEnabled();
+
+    // check that the checkbox is unchecked
+    expect(stateCheckbox).not.toBeChecked();
+  });
 })
 
 
