@@ -2,6 +2,12 @@
 
 This is the code-along for the udemy course Testing React with Jest and React Testing Library (RTL) by Bonnie Schulkin https://stepstone3.udemy.com/user/bonnie-schulkin/
 
+
+# course notes
+
+See the Wiki tab above for notes on this project (keyboard shortcut: `g` `w`)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
