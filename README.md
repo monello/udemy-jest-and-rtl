@@ -6,6 +6,8 @@ This is the code-along for the udemy course Testing React with Jest and React Te
 
 See the Wiki tab above for notes on this project (keyboard shortcut: `g` `w`)
 
+Happy Hacking and Testing!
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
