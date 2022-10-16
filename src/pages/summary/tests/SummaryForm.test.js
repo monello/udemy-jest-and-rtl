@@ -2,7 +2,7 @@ import { fireEvent, render, screen } from "@testing-library/react";
 import SummaryForm from "../SummaryForm";
 
 describe("SummaryForm", () => {
-    it("the checkbox is unchecked by default", () => {
+    it("initial state is rendered correctly", () => {
         render(<SummaryForm />);
         const checkbox = screen.getByRole("checkbox", {
             name: /terms and conditions/i,
@@ -13,7 +13,7 @@ describe("SummaryForm", () => {
         expect(button).toBeDisabled();
     });
 
-    it('the checkbox toggles the button staus when clicked', () => {
+    it('the checkbox toggles the button status when clicked', () => {
         render(<SummaryForm />);
         const checkbox = screen.getByRole("checkbox", {
             name: /terms and conditions/i,
