@@ -1,12 +1,17 @@
-import './App.css';
-import SummaryForm from './pages/summary/SummaryForm';
+import { Container } from 'react-bootstrap';
+import { OrderDetailsProvider } from './contexts/OrderDetails.jsx';
+import OrderEntry from './pages/entry/OrderEntry.jsx';
 
-function App() {
+const App = () => {
   return (
-    <div>
-      <SummaryForm />
-    </div>
+    <Container>
+      <OrderDetailsProvider>
+        {/* Summary page and entry pages nee provider */}
+        <OrderEntry />
+      </OrderDetailsProvider>
+      {/* confirmation page does not nee provider */}
+    </Container>
   );
-}
+};
 
 export default App;
