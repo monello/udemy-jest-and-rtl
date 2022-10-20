@@ -1,12 +1,11 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen } from "../../../test-utils/testing-library-utils";
 import userEvent from "@testing-library/user-event";
 import Options from "../Options";
-import { OrderDetailsProvider } from "../../../contexts/OrderDetails";
 
 test("update scoop subtotalwhen scoops change", async () => {
     const user = userEvent.setup();
 
-    render(<Options optionType="scoops" />, { wrapper: OrderDetailsProvider });
+    render(<Options optionType="scoops" />);
 
     // make sure total starts at $0.00
     // - getByText() looks for an exact match by default, but you can set exact to false to get a partiel match
