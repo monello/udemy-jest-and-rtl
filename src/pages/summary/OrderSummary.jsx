@@ -13,7 +13,7 @@ const OrderSummary = () => {
     ));
 
     // Convert an Object to an array by extracting all the keys into a new Array
-    const toppingArray = Object.keys(optionCounts.toppingd); // ["M&Ms", "Gummi bears"]
+    const toppingArray = Object.keys(optionCounts.toppings); // ["M&Ms", "Gummi bears"]
     const toppingList = toppingArray.map((key) => <li key={key}>{key}</li>);
 
     return (

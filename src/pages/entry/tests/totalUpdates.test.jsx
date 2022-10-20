@@ -22,7 +22,7 @@ test("update scoop subtotalwhen scoops change", async () => {
     // https://testing-library.com/docs/user-event/intro
     // https://testing-library.com/docs/user-event/utility#clear
     // clear(), clears an editable element
-    await user.clear();
+    await user.clear(vanillaInput);
     await user.type(vanillaInput, "1");
     expect(scoopsSubtotal).toHaveTextContent("2.00");
 
@@ -30,7 +30,7 @@ test("update scoop subtotalwhen scoops change", async () => {
     const chocolatInput = await screen.findByRole("spinbutton", {
         name: "Chocolate",
     });
-    await user.clear();
+    await user.clear(chocolatInput);
     await user.type(chocolatInput, "2");
-    expect(chocolatInput).toHaveTextContent("6.00");
+    expect(scoopsSubtotal).toHaveTextContent("6.00");
 });
