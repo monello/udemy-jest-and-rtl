@@ -12,17 +12,30 @@ const OrderSummary = ({ setOrderPhase }) => {
         </li>
     ));
 
-    // Convert an Object to an array by extracting all the keys into a new Array
-    const toppingArray = Object.keys(optionCounts.toppings); // ["M&Ms", "Gummi bears"]
-    const toppingList = toppingArray.map((key) => <li key={key}>{key}</li>);
+    // only display toppings if the toppings total is nonzero
+    const hasToppings = totals.toppings > 0;
+    let toppingsDisplay = null;
+
+    if (hasToppings) {
+        // Convert an Object to an array by extracting all the keys into a new Array
+        const toppingsArray = Object.keys(optionCounts.toppings); // ["M&Ms", "Gummi bears"]
+        const toppingList = toppingsArray.map((key) => (
+            <li key={key}>{key}</li>
+        ));
+        toppingsDisplay = (
+            <>
+                <h2>Toppings: {formatCurrency(totals.toppings)}</h2>
+                <ul>{toppingList}</ul>
+            </>
+        );
+    }
 
     return (
         <div>
             <h1>Order Summary</h1>
             <h2>Scoops: {formatCurrency(totals.scoops)}</h2>
             <ul>{scoopList}</ul>
-            <h2>Toppings: {formatCurrency(totals.toppings)}</h2>
-            <ul>{toppingList}</ul>
+            {toppingsDisplay}
             <SummaryForm setOrderPhase={setOrderPhase} />
         </div>
     );
