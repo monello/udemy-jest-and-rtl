@@ -2,7 +2,6 @@ import {
     render,
     screen,
     waitFor,
-    act,
 } from "../../../test-utils/testing-library-utils";
 import userEvent from "@testing-library/user-event";
 import OrderEntry from "../OrderEntry";
