@@ -46,10 +46,8 @@ describe("SummaryForm", () => {
         const nullPopover = screen.queryByText(
             /no ice cream will actually be delivered/i
         );
-        // - here we assert that it is indeed null (Not in the document)
-        expect(nullPopover).toBeNull();
-        // - could also use...
-        expect(nullPopover).not.toBeInTheDocument(); // Does the same as the previous assert, but apparently the preferred wey yo assert this
+        // - here we assert that it is indeed Not in the document
+        expect(nullPopover).not.toBeInTheDocument();
 
         // popover appears when we mouse-over (hover over) the checkbox
         const terms = screen.getByText(/terms and conditions/i);
