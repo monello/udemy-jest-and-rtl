@@ -6,11 +6,9 @@ const AlertBanner = ({ message, variant }) => {
     const alertVariant = variant || "danger";
 
     return (
-        <Alert
-            variant={alertVariant}
-            message={alertMessage}
-            style={{ backgroundColor: "red" }}
-        />
+        <Alert variant={alertVariant} style={{ backgroundColor: "red" }}>
+            {alertMessage}
+        </Alert>
     );
 };
 
