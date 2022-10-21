@@ -6,7 +6,6 @@ import { useOrderDetails } from "../../contexts/OrderDetails";
 export default function OrderConfirmation({ setOrderPhase }) {
     const { resetOrder } = useOrderDetails();
     const [orderNumber, setOrderNumber] = useState(null);
-    const [isLoading, setIsloading] = useState(true);
 
     useEffect(() => {
         axios
@@ -15,11 +14,9 @@ export default function OrderConfirmation({ setOrderPhase }) {
             .post(`http://localhost:3030/order`)
             .then((response) => {
                 setOrderNumber(response.data.orderNumber);
-                setIsloading(false);
             })
             .catch((error) => {
                 // TODO: handle error from server
-                setIsloading(false);
             });
     }, []);
 
@@ -31,9 +28,7 @@ export default function OrderConfirmation({ setOrderPhase }) {
         setOrderPhase("inProgress");
     }
 
-    return isLoading ? (
-        <p>Loading...</p>
-    ) : (
+    return orderNumber ? (
         <div style={{ textAlign: "center" }}>
             <h1>Thank You!</h1>
             <p>Your order number is {orderNumber}</p>
@@ -42,5 +37,7 @@ export default function OrderConfirmation({ setOrderPhase }) {
             </p>
             <Button onClick={handleClick}>Create new order</Button>
         </div>
+    ) : (
+        <p>Loading...</p>
     );
 }
